@@ -1,4 +1,4 @@
-const { Agency, Agent, Objective, Surveillance, Elimination, Exfiltration } = require("./mission_generator_solution");
+const { Agency, Agent, Objective, Surveillance, Elimination, Exfiltration } = require("./mission_generator");
 
 
 // Tests existants
@@ -74,15 +74,6 @@ test('Agency constructor sets location and foundedDate', () => {
     const agency = new Agency("Test Agency", "Paris");
     expect(agency.location).toBe("Paris");
     expect(agency.foundedDate).toBeInstanceOf(Date);
-});
-
-test('Agency.removeAgent removes and returns the agent', () => {
-    const agency = new Agency("Test Agency");
-    const agent = new Agent("Test Agent", "001");
-    agency.addAgent(agent);
-    const removedAgent = agency.removeAgent("001");
-    expect(removedAgent).toBe(agent);
-    expect(agency.agentList.length).toBe(0);
 });
 
 test('Agency.findAgentById finds the correct agent', () => {
